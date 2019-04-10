@@ -20,4 +20,8 @@ clean:
 	@echo ">> removing binaries"
 	rm -rf $(BUILD_DIR)
 
+cloud-build:
+	@echo ">> starting a cloud build"
+	gcloud builds submit --config cloudbuild.yaml --substitutions=COMMIT_SHA="12345" .
+
 .PHONY: get-dep build unit-test clean
