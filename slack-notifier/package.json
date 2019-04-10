@@ -1,0 +1,9 @@
+{
+  "name": "slack-notifier",
+  "version": "1.0.0",
+  "description": "Slack integration for Google Cloud Build, using Google Cloud Functions",
+  "main": "index.js",
+  "dependencies": {
+    "@slack/client": "3.9.0"
+  }
+}
