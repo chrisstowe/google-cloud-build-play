@@ -13,12 +13,16 @@ module.exports.subscribe = (event, callback) => {
 // INTERNAL_ERROR, TIMEOUT, CANCELLED
   const status = ['SUCCESS', 'FAILURE', 'INTERNAL_ERROR', 'TIMEOUT'];
   if (status.indexOf(build.status) === -1) {
-    return webhook.send(`build status: ${build.status}`, callback);;
+    return webhook.send(`build status: ${build.status}...`, callback);
   }
 
   // Send message to Slack.
   const message = createSlackMessage(build);
   webhook.send(message, callback);
+
+  if (build.status === 'SUCCESS') {
+    webhook.send('🎉🎉🎉 SUCCESS 🎉🎉🎉', callback);
+  }
 };
 
 // eventToBuild transforms pubsub event message to a build object.
