@@ -9,8 +9,8 @@ module.exports.subscribe = (event, callback) => {
 
     if (build.status === 'QUEUED') {
         return webhook.send(`QUEUED:\n
-            Repo: ${build.projectId.source.repoSource.repoName}\n
-            Branch: ${build.projectId.source.repoSource.branchName}`,
+            Repo: ${build.source.repoSource.repoName}\n
+            Branch: ${build.source.repoSource.branchName}`,
             callback);
     }
 
