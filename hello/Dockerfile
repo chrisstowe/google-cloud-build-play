@@ -10,7 +10,7 @@ RUN apk update && apk add \
 WORKDIR /go/src/github.com/ForgeCloud/poc-fraas-ci
 
 COPY Makefile .
-COPY hello ./hello
+COPY cmd ./cmd
 
 RUN make build
 
