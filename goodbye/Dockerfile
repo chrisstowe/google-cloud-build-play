@@ -7,10 +7,10 @@ RUN apk update && apk add \
     make \
     git
 
-WORKDIR /go/src/github.com/ForgeCloud/poc-fraas-ci
+WORKDIR /go/src/github.com/ForgeCloud/poc-fraas-ci/goodbye
 
 COPY Makefile .
-COPY hello ./hello
+COPY cmd ./cmd
 
 RUN make build
 
@@ -21,8 +21,8 @@ FROM alpine
 WORKDIR /opt/app
 
 # Install the built app.
-COPY --from=build-env /go/src/github.com/ForgeCloud/poc-fraas-ci/build/hello .
+COPY --from=build-env /go/src/github.com/ForgeCloud/poc-fraas-ci/goodbye/build/goodbye .
 
 EXPOSE 80
 
-ENTRYPOINT [ "./hello" ]
+ENTRYPOINT [ "./goodbye" ]
