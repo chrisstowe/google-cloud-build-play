@@ -8,7 +8,7 @@ steps:
   id: 'get-data'
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/hello:$COMMIT_SHA', './hello' ]
+  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/hello:$COMMIT_SHA', './hello2' ]
   waitFor: ['get-data']
 
 images:
